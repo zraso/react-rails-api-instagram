@@ -9,21 +9,22 @@ class PostsController < ApplicationController
     render json: post
   end
 
-  def update
-    post = Todo.find(params[:id])
-    post.update_attributes(post_param)
-    render json: post
-  end
+  # def update
+  #   post = Post.find(params[:id])
+  #   post.update_attributes(post_param)
+  #   render json: post
+  # end
 
-  def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    head :no_content, status: :ok
-  end
+  # def destroy
+  #   post = Post.find(params[:id])
+  #   post.destroy
+  #   head :no_content, status: :ok
+  # end
 
-  private
+  # private
 
   def post_param
-    params.require(:todo).permit(:title, :done)
+    puts params
+    params.require(:post).permit(:caption)
   end
 end
